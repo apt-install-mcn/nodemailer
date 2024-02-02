@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Funcoadee</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap);
+
+        body,
+        html {
+            max-width: 650px;
+            font-family: Poppins, sans-serif;
+            text-align: center;
+            color: #000000bf;
+            background-color: #fff;
+            margin: auto;
+            font-size: 14px
+        }
+
+        .header {
+            display: flex;
+            justify-content: center;
+            height: 85px;
+            margin: auto;
+            background-color: #1e1f25
+        }
+
+        .title {
+            text-align: left;
+            width: 360px
+        }
+
+        .title img {
+            margin-top: 5rem;
+            margin-left: 3rem;
+            height: 55px
+        }
+
+        .title h2 {
+            color: #000000;
+            font-size: 27px;
+            margin: 4rem 3rem 0 3rem;
+            text-align: left
+        }
+
+        .p-section {
+            text-align: left;
+            margin: 3rem 3rem auto;
+            line-height: 32px
+        }
+
+        .p-section-joined {
+            text-align: left;
+            margin: 0rem 3rem auto;
+            line-height: 32px
+        }
+
+        .footer {
+            background-color: #000000;
+            display: flex;
+            justify-content: center;
+            padding: .5em 3em;
+            margin-top: 4rem;
+            height: 85px
+        }
+
+        .footer .social {
+            align-self: center
+        }
+
+        .footer a {
+            color: #000000;
+            text-decoration: none
+        }
+
+        .footer a:hover {
+            cursor: pointer
+        }
+
+        .social-icon {
+            width: 30px
+        }
+
+        #logo {
+            margin: .5rem
+        }
+
+        .mt-03 {
+            margin-top: 0.3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+    </div>
+    <div id="content">
+        <div class="title">
+            <h2>¡Hi {{name}}!</h2>
+        </div>
+        <div class="message">
+            <p class="p-section">This is an email for the web page easylife(marketing webside), Moises Carrillo.</p>
+        </div>
+        <div class="message">
+            <p class="p-section-joined">We have received your message, we will contact you shortly.</p>
+        </div>
+        <div>
+            <p class="p-section"><strong>By:</strong> {{email}}</p>
+            <p class="p-section-joined"><strong>Phone:</strong> {{phone}}</p>
+            <p class="p-section-joined"><strong>Your message:</strong> {{message}}</p>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="social">
+        </div>
+    </div>
+</body>
+
+</html>
