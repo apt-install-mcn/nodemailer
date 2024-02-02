@@ -78,76 +78,9 @@ const signup = async (req, res) => {
         });
 };
 
-/*send mail from real gmail account */
-const getbill = (req, res) => {
-    try {
-        console.log('Entrando en la función getbill');  // Agrega este log
 
-        const { name, documentType, documentNumber, representative, birthplace, diagnosis, hasTest, birthdate, email, phone } = req.body;
-
-        let config = {
-            service: 'gmail',
-            auth: {
-                user: EMAIL,
-                pass: PASSWORD
-            },
-            port: 465,
-            secure: true
-        }
-        
-        let transporter = nodemailer.createTransport(config);
-
-        let MailGenerator = new Mailgen({
-            theme: "default",
-            product: {
-                name: "Funcoadee",
-                link: 'https://mailgen.js/'
-            }
-        })
-
-        let response = {
-            body: {
-                name: name,
-                intro: "Tu información ha sido recibida con éxito",
-                table: {
-                    data: [
-                        {
-                            // item: "Nodemailer Stack Book",
-                            description: `Nombre: ${name}, Tipo de documento: ${documentType}, Número de documento: ${documentNumber}, Representante: ${representative}, Lugar de nacimiento: ${birthplace}, Diagnóstico: ${diagnosis}, ¿Cuenta con prueba?: ${hasTest}, Fecha de nacimiento: ${birthdate}, Correo electrónico: ${email}, Teléfono: ${phone}`,
-                            price: "10.99",
-                        }
-                    ]
-                },
-                outro: "Nos comunicaremos"
-            }
-        }
-
-        let mail = MailGenerator.generate(response)
-
-        console.log('Después de procesar los datos');  // Agrega este log
-
-        let message = {
-            from: EMAIL,
-            to: email,
-            subject: "Realizar Pedido",
-            html: mail
-        }
-
-        transporter.sendMail(message).then(() => {
-            return res.status(201).json({
-                msg: "¡Mensaje enviado con exito!"
-            })
-        }).catch(error => {
-            console.error('Error en la función getbill:', error);  // Agrega este log
-
-            return res.status(500).json({ error })
-        })
-    } catch (error) {
-        return res.status(500).json({ error });
-    }
-}
 
 module.exports = {
     signup,
-    getbill
+    
 }
